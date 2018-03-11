@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalkulator BMI</string>
+    <string name="massLabelKilograms">Masa[kg]</string>
+    <string name="heightLabelMeters">Wzrost[m]</string>
+    <string name="calculateButtonText">Licz</string>
+    <string name="unitsLabel" >Jednostki</string>
+    <string name="unitsSwitchLabelPoundsInches">funty/cale</string>
+    <string name="unitsSwitchLabelMetersKilograms">m/kg</string>
+    <string name="heightLabelInches">Wzrost[cale]</string>
+    <string name="massLabelPounds">Masa[funty]</string>
+    <string name="resultLabel">BMI:</string>
+    <string name="errorString">Nieprawidłowe dane!</string>
+    <string name="title_activity_about_me">O mnie</string>
+    <string name="aboutMeMenuItemText">O mnie</string>
+    <string name="myName">Szymon</string>
+    <string name="mySurname">Woźniak</string>
+    <string name="myFaceContentDescription">Moja twarz</string>
+</resources>
