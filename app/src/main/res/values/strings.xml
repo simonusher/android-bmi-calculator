@@ -16,4 +16,9 @@
     <string name="myName">Szymon</string>
     <string name="mySurname">Woźniak</string>
     <string name="myFaceContentDescription">My Face</string>
+    <string name="filename">myFile</string>
+    <string name="saveMenuItemText">Save</string>
+    <string name="errorWhileLoadingFile">Something went wrong while loading file.</string>
+    <string name="errorWhileSavingFile">Something went wrong while saving file.</string>
+    <string name="savedDataToFile">Successfully saved data to file.</string>
 </resources>

@@ -16,4 +16,8 @@
     <string name="myName">Szymon</string>
     <string name="mySurname">Woźniak</string>
     <string name="myFaceContentDescription">Moja twarz</string>
+    <string name="saveMenuItemText">Zapisz</string>
+    <string name="savedDataToFile">Pomyślnie zapisano dane do pliku.</string>
+    <string name="errorWhileLoadingFile">Coś poszło nie tak przy wczytywaniu pliku.</string>
+    <string name="errorWhileSavingFile">Coś poszło nie tak przy zapisywaniu pliku.</string>
 </resources>

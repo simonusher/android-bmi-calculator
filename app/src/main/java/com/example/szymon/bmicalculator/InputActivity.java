@@ -15,6 +15,12 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class InputActivity extends Activity {
     private Bmi bmiCounter;
 
@@ -76,6 +82,8 @@ public class InputActivity extends Activity {
                 }
             }
         });
+
+        readDataFromFile();
     }
 
     @Override
@@ -91,6 +99,9 @@ public class InputActivity extends Activity {
         switch (item.getItemId()) {
             case R.id.menuItemAboutMe:
                 showAboutMeActivity();
+                return true;
+            case R.id.menuItemSaveToFile:
+                saveDataToFile();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -151,8 +162,54 @@ public class InputActivity extends Activity {
         errorToast.show();
     }
 
+    private void showToast(String text){
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
     private void showAboutMeActivity(){
         Intent showAboutMe = new Intent(this, AboutMeActivity.class);
         startActivity(showAboutMe);
+    }
+
+    private void saveDataToFile(){
+        String massString = massEditText.getText().toString();
+        String heightString = heightEditText.getText().toString();
+        boolean areUnitsInLbIn = unitSwitch.isChecked();
+        String fileContents = areUnitsInLbIn + "\n" + massString + "\n" + heightString;
+        FileOutputStream outputStream;
+        try {
+            outputStream = openFileOutput(getString(R.string.filename), Context.MODE_PRIVATE);
+            outputStream.write(fileContents.getBytes());
+            outputStream.close();
+            showToast(getString(R.string.savedDataToFile));
+        } catch (Exception e) {
+            showToast(getString(R.string.errorWhileSavingFile));
+        }
+    }
+
+    private boolean readDataFromFile(){
+        File directory = getApplicationContext().getFilesDir();
+        File file = new File(directory, getString(R.string.filename));
+
+        if(file.exists()){
+            try{
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String areUnitsInLbIn = reader.readLine();
+                String mass = reader.readLine();
+                String height = reader.readLine();
+                unitSwitch.setChecked(Boolean.parseBoolean(areUnitsInLbIn));
+                massEditText.setText(mass);
+                heightEditText.setText(height);
+
+            }catch (IOException e){
+                showToast(getString(R.string.errorWhileLoadingFile));
+                return false;
+            }
+            return true;
+        }
+        showToast(getString(R.string.errorWhileLoadingFile));
+        return false;
     }
 }

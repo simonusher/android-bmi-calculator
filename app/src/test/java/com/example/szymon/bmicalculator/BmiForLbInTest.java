@@ -32,4 +32,10 @@ public class BmiForLbInTest {
         Bmi bmiCounter = new BmiForLbIn(0, 0);
         bmiCounter.calculateBmi();
     }
+
+    @Test()
+    public void test(){
+        boolean a = true;
+        System.out.println(a);
+    }
 }
