@@ -55,6 +55,7 @@ public class InputActivity extends Activity {
                 clearTextFields();
             }
         });
+
         boolean unitsInLbIn = unitSwitch.isChecked();
         if(unitsInLbIn){
             bmiCounter = new BmiForLbIn();
@@ -95,7 +96,6 @@ public class InputActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
             case R.id.menuItemAboutMe:
                 showAboutMeActivity();
@@ -209,7 +209,6 @@ public class InputActivity extends Activity {
             }
             return true;
         }
-        showToast(getString(R.string.errorWhileLoadingFile));
         return false;
     }
 }
